@@ -1,0 +1,20 @@
+1) Analysis of code :
+
+i) Header Files :
+
+a) File Class - Inheritance with TextFile, AudioFile and ImageFile Classes. Also contains the functionality of printing file.
+b) Folder Class - Vector of File names.
+c) Printer Class - Vector of Printer names.
+d) Stacks Class - Vector of Request queries stacks.
+e) Server Class - Most important part of program. Availabiltity of printer is checked and calling of print function is called in 	this particular class.  
+
+ii) Main File :
+
+a) Reading of file and storing folder and printer stack.
+b) Calling of functions till the requests stack size is equal to 0.
+
+2) Execution of code :
+
+i) On command terminal type make all to compile.
+ii) To execute , type ./a.out. 
+

@@ -1,0 +1,238 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+class CustomersAccount
+{
+     public:
+
+	             CustomersAccount(){};
+
+	              
+
+             void setFields(int, string, string, string, int, char, int);
+
+             void DisplayCustomer(int);
+
+	             static int numCustomers;
+
+	              
+
+	      private:
+
+	              int CusID[10];
+
+	              string F_name[10];
+
+	              string L_name[10];
+
+	              string CusAdd[10];
+
+	              int CusPhone[10];
+
+	              char CusType[10];
+
+	      };
+
+	       
+
+	int CustomersAccount::numCustomers = 0;
+
+	 
+
+	void CustomersAccount::setFields(int ID, string Fname, string Lname, string Add, int Phone, char Type, int index)
+
+	{
+
+	    CusID[index] = ID;
+
+	    F_name[index] = Fname;
+
+	    L_name[index] = Lname;
+
+	    CusAdd[index] = Add;
+
+	    CusPhone[index] = Phone;
+
+    CusType[index] = Type;
+
+	    }
+
+	 
+
+	void CustomersAccount::DisplayCustomer(int index)
+
+	{
+
+	     cout << "ID: " << CusID[index] << endl;
+
+	     cout << "First Name: " << F_name[index] << endl;
+
+	     cout << "Last Name: " << L_name[index] << endl;
+
+	     cout << "Address: " << CusAdd[index] << endl;
+
+	     cout << "Telephone: " << CusPhone[index] << endl;
+
+	     cout << "Account Type: " << CusType[index] << endl;
+
+	     }
+
+	 
+
+	class BankAccount:public CustomersAccount
+
+	{
+
+	       
+
+	      };
+
+	       
+
+	class CustomersInvestment:public CustomersAccount
+
+	{
+
+	       
+
+	      };
+
+	 
+
+	void readFile(CustomersAccount& c);
+	void displayClass(CustomersAccount c);
+
+	 
+
+	int main()
+
+	{
+
+	    cout << "*---------------------------------------------*\n";
+
+	    cout << "| Assignment 2 task 1, To produce a piece of  |\n";
+
+	    cout << "| code called SIMBank.cpp. SIM Bank keeps     |\n";
+
+	    cout << "| track of customers’ portfolios, which     |\n";
+
+	    cout << "| include several bank accounts and         |\n";
+
+	    cout << "| investments.                               |\n";
+
+	    cout << "|                                             |\n";
+
+	    cout << "| I am taking credit for this.  This will be  |\n";
+
+	    cout << "| submited to UOW for grading.               |\n";
+
+	    cout << "*---------------------------------------------*\n\n";
+
+	     
+
+	    cout << " " << endl;
+
+	    cout << "*----------------- S.I.M Bank ----------------*\n" << endl;
+
+	     
+
+	    CustomersAccount Customers;
+
+	     
+
+	    cout << "Reading all customer's data from file" << endl;
+
+	    cout << " " << endl;
+
+	    readFile(Customers);
+
+	     
+
+	    displayClass(Customers);
+
+	    //Timer(2);
+
+	    system("Pause");
+
+	    return 0;
+
+	    }
+
+	 
+
+	void readFile(CustomersAccount& c)
+
+	{
+
+	    string CFname, CLname, CAdd;
+
+	    int CID, CPhone, num = 0;
+
+	    char CType;
+
+	     
+
+	    ifstream fin;
+
+	     
+	    fin.open("customers.txt");
+
+	    if (!fin.good())
+
+	    {
+
+	        cout << "File not found" << endl;
+
+	        exit(1);
+
+	        }
+
+	         
+
+	    while(!fin.eof())
+
+	    {
+
+	                      
+
+	                     fin >> CID >> CFname >> CLname >> CAdd >> CPhone >> CType; //ERROR
+
+	                     c.setFields(CID, CFname, CLname, CAdd, CPhone, CType, num);
+
+	                     num++;
+
+	                     CustomersAccount::numCustomers++;
+
+	                     }
+
+	     
+
+	    fin.close();
+
+	     
+
+	    }
+
+	 
+
+	void displayClass(CustomersAccount c)
+
+	{
+
+	    int num = CustomersAccount::numCustomers;
+
+	    cout << "Total number of students: " << num << endl;
+
+	     
+
+	    for (int i = 0; i < num; i++)
+
+	    {
+
+	        c.DisplayCustomer(i);
+
+	        cout << endl;
+
+	    }
+
+	}

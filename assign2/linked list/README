@@ -1,0 +1,7 @@
+To compile :
+
+g++ main.cpp frontdesk.cpp mechanic.cpp
+
+To execute :
+
+./a.out test

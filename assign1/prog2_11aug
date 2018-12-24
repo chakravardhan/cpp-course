@@ -1,0 +1,14 @@
+Object definition 
+
+1) Everything is an object.
+2) Object sending u messages.
+3) Composed of other objects.
+4) "Type".
+5) Same type can handle some messages. 
+
+Classes
+
+1) Class in C++ same as struct in C.
+2) Access specifiers are 3 in C++ - private(default),public,protected.
+3) Interface are the data and methods in the access-specifiers.
+4) cout,cin,cerr in C++.
